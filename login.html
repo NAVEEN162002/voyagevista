@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <title>Responsive Website Travel</title>
+
+    <style>
+        body {
+            background-image: url('assets/img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: repeat-y;
+            margin: 0;
+        }
+
+        .selected-destination {
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: none;
+        }
+
+        .payment-options {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .balloon-animation {
+            animation: balloonBlast 1s forwards;
+        }
+
+        @keyframes balloonBlast {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-50px); opacity: 0.5; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+
+        
+        .payment-form {
+            display: none;
+            background-color: rgba(0, 0, 128, 0.8); /* Dark blue color */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        .card-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">VoyageVista</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Logout</a>
+                    </li>
+                </ul>
+
+                <i class="ri-close-line nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-function-line"></i>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="place section" id="place">
+            <h2 class="section__title">Choose Your Destination</h2>
+
+            <div class="place__container container grid">
+                <!--==================== PLACES CARD 1 ====================-->
+                <div class="place__card">
+                    <img src="assets/img/place1.jpg" alt="" class="place__img">
+                    
+                    <div class="place__content">
+                        <span class="place__rating">
+                            <i class="ri-star-line place__rating-icon"></i>
+                            <span class="place__rating-number">4,8</span>
+                        </span>
+
+                        <div class="place__data">
+                            <h3 class="place__title">Goa</h3>
+                            
+                            <span class="place__price">Rs2499</span>
+                        </div>
+                    </div>
+
+                    <button class="button button--flex place__button" onclick="selectPlace('Goa', 2499)">
+                        <i class="ri-arrow-right-line"></i> Select
+                    </button>
+                </div>
+
+               <!--==================== PLACES CARD 2 ====================-->
+               <div class="place__card">
+                <img src="assets/img/place2.jpg" alt="" class="place__img">
+                
+                <div class="place__content">
+                    <span class="place__rating">
+                        <i class="ri-star-line place__rating-icon"></i>
+                        <span class="place__rating-number">5,0</span>
+                    </span>
+
+                    <div class="place__data">
+                        <h3 class="place__title">Kerala</h3>
+                        <!-- <span class="place__subtitle">Polinesia</span> -->
+                        <span class="place__price">Rs3799</span>
+                    </div>
+                </div>
+
+                <button class="button button--flex place__button" onclick="selectPlace('Kerala', 3799)">
+                    <i class="ri-arrow-right-line"></i> Select
+                </button>
+            </div>
+
+            <!--==================== PLACES CARD 3 ====================-->
+            <div class="place__card">
+                <img src="assets/img/place3.jpg" alt="" class="place__img">
+                
+                <div class="place__content">
+                    <span class="place__rating">
+                        <i class="ri-star-line place__rating-icon"></i>
+                        <span class="place__rating-number">4,9</span>
+                    </span>
+
+                    <div class="place__data">
+                        <h3 class="place__title">Sri Lanka</h3>
+                        <!-- <span class="place__subtitle">EE.UU</span> -->
+                        <span class="place__price">Rs5499</span>
+                    </div>
+                </div>
+
+                <button class="button button--flex place__button" onclick="selectPlace('Sri Lanka', 5499)">
+                    <i class="ri-arrow-right-line"></i> Select
+                </button>
+            </div>
+
+            <!--==================== PLACES CARD 4 ====================-->
+            <div class="place__card">
+                <img src="assets/img/place4.jpg" alt="" class="place__img">
+                
+                <div class="place__content">
+                    <span class="place__rating">
+                        <i class="ri-star-line place__rating-icon"></i>
+                        <span class="place__rating-number">4,8</span>
+                    </span>
+
+                    <div class="place__data">
+                        <h3 class="place__title">Vizag</h3>
+                        <!-- <span class="place__subtitle">Australia</span> -->
+                        <span class="place__price">Rs2099</span>
+                    </div>
+                </div>
+
+                <button class="button button--flex place__button" onclick="selectPlace('Vizag', 2099)">
+                    <i class="ri-arrow-right-line"></i> Select
+                </button>
+            </div>
+
+            <!--==================== PLACES CARD 5 ====================-->
+            <div class="place__card">
+                <img src="assets/img/place5.jpg" alt="" class="place__img">
+                
+                <div class="place__content">
+                    <span class="place__rating">
+                        <i class="ri-star-line place__rating-icon"></i>
+                        <span class="place__rating-number">4,8</span>
+                    </span>
+
+                    <div class="place__data">
+                        <h3 class="place__title">Marina </h3>
+                        <!-- <span class="place__subtitle">Croacia</span> -->
+                        <span class="place__price">Rs2899</span>
+                    </div>
+                </div>
+
+                <button class="button button--flex place__button" onclick="selectPlace('Marina ', 2899)">
+                    <i class="ri-arrow-right-line"></i> Select
+                </button>
+            </div>
+
+            </div>
+        </section>
+
+        <div id="selectedDestination" class="selected-destination">
+            <h3>Selected Destination: <span id="destinationName"></span></h3>
+            <button class="button button--primary" onclick="showPaymentForm()">Enter Card Details For Payment</button>
+        </div>
+
+        <div id="paymentForm" class="payment-form">
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" class="card-input" placeholder="Enter your card number">
+
+            <button class="button button--primary" onclick="makePayment()">Make Payment</button>
+        </div>
+        </div>
+
+        <!-- Your existing HTML code -->
+    </main>
+
+    <!-- ... Your existing HTML code ... -->
+
+    <script>
+        let selectedDestination = null;
+        let selectedPrice = null;
+
+        function selectPlace(destination, price) {
+            selectedDestination = destination;
+            selectedPrice = price;
+
+            // Update the selected destination display
+            document.getElementById('destinationName').innerText = destination;
+
+            // Show the selected destination and payment options
+            document.getElementById('selectedDestination').style.display = 'block';
+        }
+
+        function showPaymentForm() {
+            // Show the payment form
+            document.getElementById('paymentForm').style.display = 'block';
+            
+            // Hide the selected destination (if it's already visible)
+            document.getElementById('selectedDestination').style.display = 'none';
+        }
+
+        function makePayment() {
+            const cardNumber = document.getElementById('cardNumber').value;
+
+            if (selectedDestination && cardNumber) {
+                document.getElementById('paymentForm').style.display = 'none';
+                alert(`Payment successful! You have booked ${selectedDestination} for Rs${selectedPrice}.`);
+            } else {
+                alert('Please enter a valid card number.');
+            }
+        }
+    </script>            
+        <!--==================== FOOTER ====================-->
+<footer class="footer section">
+    <div class="footer__container container grid">
+        <div class="footer__content grid">
+            <div class="footer__data">
+                <h3 class="footer__title" style="color: black; font-weight: bold; font-style: italic;">VoyageVista</h3>
+
+                <p class="footer__description">Embark on a journey where you choose the destination, and we craft the unforgettable experience for you.</p>
+                <div>
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                        <i class="ri-facebook-box-fill"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" class="footer__social">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" target="_blank" class="footer__social">
+                        <i class="ri-youtube-fill"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer__data">
+                <h3 class="footer__subtitle">Explore</h3>
+                <ul>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">About Us</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Features</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">News & Blog</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h3 class="footer__subtitle">Connect</h3>
+                <ul>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Team</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Plan & Pricing</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Become a Member</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__data">
+                <h3 class="footer__subtitle">Help</h3>
+                <ul>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">FAQs</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Support Center</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="" class="footer__link">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer__rights">
+            <p class="footer__copy">&#169; 2023.@VoyageVista All rights reserved.</p>
+            <div class="footer__terms">
+                <a href="#" class="footer__terms-link">Terms & Agreements</a>
+                <a href="#" class="footer__terms-link">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+         <!--========== SCROLL UP ==========-->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="ri-arrow-up-line scrollup__icon"></i>
+        </a>
+
+        <!--=============== SCROLL REVEAL===============-->
+        <script src="assets/js/scrollreveal.min.js"></script>
+        
+        <!--=============== SWIPER JS ===============-->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
